@@ -60,7 +60,7 @@ All testing for this project was performed using postman in the collection
 
 ## Example API Usage
 ### Student
-get:grades
+**get:grades**
 eg call: {host}/user/1/courses/1/assignments/grades
 returns: `{
     "course_id": 1,
@@ -80,7 +80,7 @@ returns: `{
     "success": true
 }`
 
-get:grade
+**get:grade**
 eg: {host} /user/1/courses/1/assignments/1/grades
 returns: `{
     "assignment_number": 1,
@@ -96,7 +96,7 @@ returns: `{
     "success": true
 }`
 
-get:courses
+**get:courses**
 eg: {host}//user/1/courses
 returns: `{
     "courses": [
@@ -135,7 +135,7 @@ returns: `{
 }`
 
 ### Teacher
-get:grades
+**get:grades**
 eg: {host}/user/3/courses/1/assignments/grades
 returns: `{
     "course_id": 1,
@@ -165,7 +165,7 @@ returns: `{
     "success": true
 }`
 
-get:grade
+**get:grade**
 eg: {host}/user/1/courses/1/assignments/1/grades
 returns: `{
     "assignment_number": 1,
@@ -181,7 +181,7 @@ returns: `{
     "success": true
 }`
 
-post:grade
+**post:grade**
 eg: {host}/user/1/courses/1/assignments/3/grades?points=80&assignment_id=9
 returns: `{
     "assignment_number": 3,
@@ -191,7 +191,7 @@ returns: `{
     "success": true
 }`
 
-patch:grade
+**patch:grade**
 eg: {host}/user/1/courses/1/assignments/3/grades?points=80
 returns: `{
     "assignment_number": 3,
@@ -202,7 +202,7 @@ returns: `{
     "user_id": 1
 }`
 
-delete:grade
+**delete:grade**
 eg: /user/1/courses/1/assignments/3/grades
 returns: `{
     "course_id": 1,
@@ -212,7 +212,7 @@ returns: `{
     "user_id": 1
 }`
 
-get:courses
+**get:courses**
 eg: {host}/user/3/courses
 reurns: `{
     "courses": [
@@ -250,7 +250,7 @@ reurns: `{
     "user_id": 3
 }`
 
-patch:course
+**patch:course**
 eg: /user/3/courses/1?start='3:00'&end='4:00'
 returns: `{
     "status": 200,
