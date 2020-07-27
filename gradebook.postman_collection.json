@@ -1,0 +1,805 @@
+{
+	"info": {
+		"_postman_id": "d0f6fad4-95c1-462e-ad6b-68a3adc4554f",
+		"name": "gradebook",
+		"description": "Tests for the student and teacher privalages of the gradebook API.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Student",
+			"item": [
+				{
+					"name": "grades",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "20ce862b-3de3-4a4e-b755-ec1538a09e96",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"value contains a grades array\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.grades).to.be.an('array')",
+									"});",
+									"",
+									"pm.test(\"success\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.success)==true;",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImFlR1hTVk1CT2p6bVpET3g1amY0NSJ9.eyJpc3MiOiJodHRwczovL2Rldi1sM3Eta200di51cy5hdXRoMC5jb20vIiwic3ViIjoiYXV0aDB8NWVmMjUwMjVhYmEwMzAwMDE5Y2UwYTQ3IiwiYXVkIjoiZ3JhZGVib29rIiwiaWF0IjoxNTk1ODI0NzM0LCJleHAiOjE1OTU4MzE5MzQsImF6cCI6IkdkUE5ZM3hUSDFETjhia0g2Um5PWXU2YmFaekdOM2l6Iiwic2NvcGUiOiIiLCJwZXJtaXNzaW9ucyI6WyJnZXQ6Y291cnNlcyIsImdldDpncmFkZSIsImdldDpncmFkZXMiXX0.dSH_YFMVx0mT-dkUVBPjZCCJG3hvHn1Ny_Sf9oN856offEwO06D3Tc63_UN_fy1m-kXtvIYbWG75NgJEDtJ0hhxCWO06tf_geMWOyMDi9hwrfDyk1n-m8pFvfC0ErYAWDEoUDUJGEmquChqYOlQjHsPESk2si0wBKYi2BKb5JfbzCB0SIWRYqIZudV6a8vmKAqjAIsx1XUA8Z6x3XouOQKn1Z0jSkGGuJEk0420DC9yM15lriej90aCihf2MiO9IjnjEgFrndOhRRgakR0MqIiJ_KMHYA4_QICTZIduSRct7Wu2VFj84wxfvAZEIQmHIfOg-fsm6YaXXda8xbdM6PA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/user/1/courses/1/assignments/grades",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"user",
+								"1",
+								"courses",
+								"1",
+								"assignments",
+								"grades"
+							]
+						},
+						"description": "get course grades for student 1"
+					},
+					"response": []
+				},
+				{
+					"name": "grade",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "caa2c00e-9288-4213-a22f-4ac7f6681664",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"value contains a grades array\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.grade).to.be.an('array')\r",
+									"});\r",
+									"\r",
+									"pm.test(\"success\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.success)==true;\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImFlR1hTVk1CT2p6bVpET3g1amY0NSJ9.eyJpc3MiOiJodHRwczovL2Rldi1sM3Eta200di51cy5hdXRoMC5jb20vIiwic3ViIjoiYXV0aDB8NWVmMjUwMjVhYmEwMzAwMDE5Y2UwYTQ3IiwiYXVkIjoiZ3JhZGVib29rIiwiaWF0IjoxNTk1ODI0NzM0LCJleHAiOjE1OTU4MzE5MzQsImF6cCI6IkdkUE5ZM3hUSDFETjhia0g2Um5PWXU2YmFaekdOM2l6Iiwic2NvcGUiOiIiLCJwZXJtaXNzaW9ucyI6WyJnZXQ6Y291cnNlcyIsImdldDpncmFkZSIsImdldDpncmFkZXMiXX0.dSH_YFMVx0mT-dkUVBPjZCCJG3hvHn1Ny_Sf9oN856offEwO06D3Tc63_UN_fy1m-kXtvIYbWG75NgJEDtJ0hhxCWO06tf_geMWOyMDi9hwrfDyk1n-m8pFvfC0ErYAWDEoUDUJGEmquChqYOlQjHsPESk2si0wBKYi2BKb5JfbzCB0SIWRYqIZudV6a8vmKAqjAIsx1XUA8Z6x3XouOQKn1Z0jSkGGuJEk0420DC9yM15lriej90aCihf2MiO9IjnjEgFrndOhRRgakR0MqIiJ_KMHYA4_QICTZIduSRct7Wu2VFj84wxfvAZEIQmHIfOg-fsm6YaXXda8xbdM6PA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/user/1/courses/1/assignments/1/grades",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"user",
+								"1",
+								"courses",
+								"1",
+								"assignments",
+								"1",
+								"grades"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST grade",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "0046310b-55bb-4764-914d-09fd74704d7f",
+								"exec": [
+									"pm.test(\"Status code is 401\", function () {\r",
+									"    pm.response.to.have.status(401);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImFlR1hTVk1CT2p6bVpET3g1amY0NSJ9.eyJpc3MiOiJodHRwczovL2Rldi1sM3Eta200di51cy5hdXRoMC5jb20vIiwic3ViIjoiYXV0aDB8NWVmMjUwMjVhYmEwMzAwMDE5Y2UwYTQ3IiwiYXVkIjoiZ3JhZGVib29rIiwiaWF0IjoxNTk1ODI0NzM0LCJleHAiOjE1OTU4MzE5MzQsImF6cCI6IkdkUE5ZM3hUSDFETjhia0g2Um5PWXU2YmFaekdOM2l6Iiwic2NvcGUiOiIiLCJwZXJtaXNzaW9ucyI6WyJnZXQ6Y291cnNlcyIsImdldDpncmFkZSIsImdldDpncmFkZXMiXX0.dSH_YFMVx0mT-dkUVBPjZCCJG3hvHn1Ny_Sf9oN856offEwO06D3Tc63_UN_fy1m-kXtvIYbWG75NgJEDtJ0hhxCWO06tf_geMWOyMDi9hwrfDyk1n-m8pFvfC0ErYAWDEoUDUJGEmquChqYOlQjHsPESk2si0wBKYi2BKb5JfbzCB0SIWRYqIZudV6a8vmKAqjAIsx1XUA8Z6x3XouOQKn1Z0jSkGGuJEk0420DC9yM15lriej90aCihf2MiO9IjnjEgFrndOhRRgakR0MqIiJ_KMHYA4_QICTZIduSRct7Wu2VFj84wxfvAZEIQmHIfOg-fsm6YaXXda8xbdM6PA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/user/1/courses/1/assignments/3/grades?points=90&assignment_id=3",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"user",
+								"1",
+								"courses",
+								"1",
+								"assignments",
+								"3",
+								"grades"
+							],
+							"query": [
+								{
+									"key": "points",
+									"value": "90"
+								},
+								{
+									"key": "assignment_id",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PATCH grade",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "cd6140b6-539b-45de-9134-dfbdae40dc70",
+								"exec": [
+									"pm.test(\"Status code is 401\", function () {\r",
+									"    pm.response.to.have.status(401);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImFlR1hTVk1CT2p6bVpET3g1amY0NSJ9.eyJpc3MiOiJodHRwczovL2Rldi1sM3Eta200di51cy5hdXRoMC5jb20vIiwic3ViIjoiYXV0aDB8NWVmMjUwMjVhYmEwMzAwMDE5Y2UwYTQ3IiwiYXVkIjoiZ3JhZGVib29rIiwiaWF0IjoxNTk1ODI0NzM0LCJleHAiOjE1OTU4MzE5MzQsImF6cCI6IkdkUE5ZM3hUSDFETjhia0g2Um5PWXU2YmFaekdOM2l6Iiwic2NvcGUiOiIiLCJwZXJtaXNzaW9ucyI6WyJnZXQ6Y291cnNlcyIsImdldDpncmFkZSIsImdldDpncmFkZXMiXX0.dSH_YFMVx0mT-dkUVBPjZCCJG3hvHn1Ny_Sf9oN856offEwO06D3Tc63_UN_fy1m-kXtvIYbWG75NgJEDtJ0hhxCWO06tf_geMWOyMDi9hwrfDyk1n-m8pFvfC0ErYAWDEoUDUJGEmquChqYOlQjHsPESk2si0wBKYi2BKb5JfbzCB0SIWRYqIZudV6a8vmKAqjAIsx1XUA8Z6x3XouOQKn1Z0jSkGGuJEk0420DC9yM15lriej90aCihf2MiO9IjnjEgFrndOhRRgakR0MqIiJ_KMHYA4_QICTZIduSRct7Wu2VFj84wxfvAZEIQmHIfOg-fsm6YaXXda8xbdM6PA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/user/1/courses/1/assignments/3/grades",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"user",
+								"1",
+								"courses",
+								"1",
+								"assignments",
+								"3",
+								"grades"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE grade",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "2be44082-be2e-44e3-84a0-846031869f61",
+								"exec": [
+									"pm.test(\"Status code is 401\", function () {\r",
+									"    pm.response.to.have.status(401);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImFlR1hTVk1CT2p6bVpET3g1amY0NSJ9.eyJpc3MiOiJodHRwczovL2Rldi1sM3Eta200di51cy5hdXRoMC5jb20vIiwic3ViIjoiYXV0aDB8NWVmMjUwMjVhYmEwMzAwMDE5Y2UwYTQ3IiwiYXVkIjoiZ3JhZGVib29rIiwiaWF0IjoxNTk1ODI0NzM0LCJleHAiOjE1OTU4MzE5MzQsImF6cCI6IkdkUE5ZM3hUSDFETjhia0g2Um5PWXU2YmFaekdOM2l6Iiwic2NvcGUiOiIiLCJwZXJtaXNzaW9ucyI6WyJnZXQ6Y291cnNlcyIsImdldDpncmFkZSIsImdldDpncmFkZXMiXX0.dSH_YFMVx0mT-dkUVBPjZCCJG3hvHn1Ny_Sf9oN856offEwO06D3Tc63_UN_fy1m-kXtvIYbWG75NgJEDtJ0hhxCWO06tf_geMWOyMDi9hwrfDyk1n-m8pFvfC0ErYAWDEoUDUJGEmquChqYOlQjHsPESk2si0wBKYi2BKb5JfbzCB0SIWRYqIZudV6a8vmKAqjAIsx1XUA8Z6x3XouOQKn1Z0jSkGGuJEk0420DC9yM15lriej90aCihf2MiO9IjnjEgFrndOhRRgakR0MqIiJ_KMHYA4_QICTZIduSRct7Wu2VFj84wxfvAZEIQmHIfOg-fsm6YaXXda8xbdM6PA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/user/1/courses/1/assignments/3/grades",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"user",
+								"1",
+								"courses",
+								"1",
+								"assignments",
+								"3",
+								"grades"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET courses",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "50ef5752-a4eb-48f4-8387-7fa2f79df905",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"value contains a courses array\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.courses).to.be.an('array')\r",
+									"});\r",
+									"\r",
+									"pm.test(\"success\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.success)==true;\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImFlR1hTVk1CT2p6bVpET3g1amY0NSJ9.eyJpc3MiOiJodHRwczovL2Rldi1sM3Eta200di51cy5hdXRoMC5jb20vIiwic3ViIjoiYXV0aDB8NWVmMjUwMjVhYmEwMzAwMDE5Y2UwYTQ3IiwiYXVkIjoiZ3JhZGVib29rIiwiaWF0IjoxNTk1ODI0NzM0LCJleHAiOjE1OTU4MzE5MzQsImF6cCI6IkdkUE5ZM3hUSDFETjhia0g2Um5PWXU2YmFaekdOM2l6Iiwic2NvcGUiOiIiLCJwZXJtaXNzaW9ucyI6WyJnZXQ6Y291cnNlcyIsImdldDpncmFkZSIsImdldDpncmFkZXMiXX0.dSH_YFMVx0mT-dkUVBPjZCCJG3hvHn1Ny_Sf9oN856offEwO06D3Tc63_UN_fy1m-kXtvIYbWG75NgJEDtJ0hhxCWO06tf_geMWOyMDi9hwrfDyk1n-m8pFvfC0ErYAWDEoUDUJGEmquChqYOlQjHsPESk2si0wBKYi2BKb5JfbzCB0SIWRYqIZudV6a8vmKAqjAIsx1XUA8Z6x3XouOQKn1Z0jSkGGuJEk0420DC9yM15lriej90aCihf2MiO9IjnjEgFrndOhRRgakR0MqIiJ_KMHYA4_QICTZIduSRct7Wu2VFj84wxfvAZEIQmHIfOg-fsm6YaXXda8xbdM6PA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/user/1/courses",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"user",
+								"1",
+								"courses"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PATCH course",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "b3fbff93-ac6d-43a3-b4e3-3764308861f2",
+								"exec": [
+									"pm.test(\"Status code is 401\", function () {\r",
+									"    pm.response.to.have.status(401);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImFlR1hTVk1CT2p6bVpET3g1amY0NSJ9.eyJpc3MiOiJodHRwczovL2Rldi1sM3Eta200di51cy5hdXRoMC5jb20vIiwic3ViIjoiYXV0aDB8NWVmMjUwMjVhYmEwMzAwMDE5Y2UwYTQ3IiwiYXVkIjoiZ3JhZGVib29rIiwiaWF0IjoxNTk1ODI0NzM0LCJleHAiOjE1OTU4MzE5MzQsImF6cCI6IkdkUE5ZM3hUSDFETjhia0g2Um5PWXU2YmFaekdOM2l6Iiwic2NvcGUiOiIiLCJwZXJtaXNzaW9ucyI6WyJnZXQ6Y291cnNlcyIsImdldDpncmFkZSIsImdldDpncmFkZXMiXX0.dSH_YFMVx0mT-dkUVBPjZCCJG3hvHn1Ny_Sf9oN856offEwO06D3Tc63_UN_fy1m-kXtvIYbWG75NgJEDtJ0hhxCWO06tf_geMWOyMDi9hwrfDyk1n-m8pFvfC0ErYAWDEoUDUJGEmquChqYOlQjHsPESk2si0wBKYi2BKb5JfbzCB0SIWRYqIZudV6a8vmKAqjAIsx1XUA8Z6x3XouOQKn1Z0jSkGGuJEk0420DC9yM15lriej90aCihf2MiO9IjnjEgFrndOhRRgakR0MqIiJ_KMHYA4_QICTZIduSRct7Wu2VFj84wxfvAZEIQmHIfOg-fsm6YaXXda8xbdM6PA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/user/1/courses/1?start='3:00'&end='4:00",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"user",
+								"1",
+								"courses",
+								"1"
+							],
+							"query": [
+								{
+									"key": "start",
+									"value": "'3:00'"
+								},
+								{
+									"key": "end",
+									"value": "'4:00"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Tests endpoint access by students.",
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Teacher",
+			"item": [
+				{
+					"name": "get grades",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "8c42a8db-b353-4c0e-a1fa-631dc3187c23",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"value contains a grades array\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.grades).to.be.an('array')\r",
+									"});\r",
+									"\r",
+									"pm.test(\"success\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.success)==true;\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImFlR1hTVk1CT2p6bVpET3g1amY0NSJ9.eyJpc3MiOiJodHRwczovL2Rldi1sM3Eta200di51cy5hdXRoMC5jb20vIiwic3ViIjoiYXV0aDB8NWVmM2JhYmY1NWVlZjIwMDE5MmY2MGJlIiwiYXVkIjoiZ3JhZGVib29rIiwiaWF0IjoxNTk1ODI0OTI3LCJleHAiOjE1OTU4MzIxMjcsImF6cCI6IkdkUE5ZM3hUSDFETjhia0g2Um5PWXU2YmFaekdOM2l6Iiwic2NvcGUiOiIiLCJwZXJtaXNzaW9ucyI6WyJkZWxldGU6Z3JhZGUiLCJnZXQ6Y291cnNlcyIsImdldDpncmFkZSIsImdldDpncmFkZXMiLCJwYXRjaDpjb3Vyc2UiLCJwYXRjaDpncmFkZSIsInBvc3Q6Z3JhZGUiXX0.YjHudtMZZgJru2Fd8DBBnWbkHV-5eys4G3oeUYjGzkORUtM1odQ8iy5cKhm2n-csTO7tmLHyhZQBqPj_1jsZApoAi9d9kUtXdId4b2nBh8iYwv8jQZ7rAIMd5WvG3_CZvmvCYTjM5fP0MV70qYKSTR3ospYsIkH4KjvDMtub0nUKcv8BoCjwu5UnAmKlLnl_T4FQsEHDGuitr9BV_TJytOE9_FV0rHkJOpyBrel2jioyLUPPdWBkjSYQzs-K3-TBBD0QhXs_QQLZ_RrykmbPFE9H53hEgKfyvXYOQl5S3kcM8CgKSC_hbht1XrZQCGfxGDiB1OkSA2-mGrokCVjFzA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/user/3/courses/1/assignments/grades",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"user",
+								"3",
+								"courses",
+								"1",
+								"assignments",
+								"grades"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get grade",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "bd3d913e-e840-418f-8018-4dc57e6d7d07",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"value contains a grades array\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.grade).to.be.an('array')\r",
+									"});\r",
+									"\r",
+									"pm.test(\"success\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.success)==true;\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImFlR1hTVk1CT2p6bVpET3g1amY0NSJ9.eyJpc3MiOiJodHRwczovL2Rldi1sM3Eta200di51cy5hdXRoMC5jb20vIiwic3ViIjoiYXV0aDB8NWVmM2JhYmY1NWVlZjIwMDE5MmY2MGJlIiwiYXVkIjoiZ3JhZGVib29rIiwiaWF0IjoxNTk1ODI0OTI3LCJleHAiOjE1OTU4MzIxMjcsImF6cCI6IkdkUE5ZM3hUSDFETjhia0g2Um5PWXU2YmFaekdOM2l6Iiwic2NvcGUiOiIiLCJwZXJtaXNzaW9ucyI6WyJkZWxldGU6Z3JhZGUiLCJnZXQ6Y291cnNlcyIsImdldDpncmFkZSIsImdldDpncmFkZXMiLCJwYXRjaDpjb3Vyc2UiLCJwYXRjaDpncmFkZSIsInBvc3Q6Z3JhZGUiXX0.YjHudtMZZgJru2Fd8DBBnWbkHV-5eys4G3oeUYjGzkORUtM1odQ8iy5cKhm2n-csTO7tmLHyhZQBqPj_1jsZApoAi9d9kUtXdId4b2nBh8iYwv8jQZ7rAIMd5WvG3_CZvmvCYTjM5fP0MV70qYKSTR3ospYsIkH4KjvDMtub0nUKcv8BoCjwu5UnAmKlLnl_T4FQsEHDGuitr9BV_TJytOE9_FV0rHkJOpyBrel2jioyLUPPdWBkjSYQzs-K3-TBBD0QhXs_QQLZ_RrykmbPFE9H53hEgKfyvXYOQl5S3kcM8CgKSC_hbht1XrZQCGfxGDiB1OkSA2-mGrokCVjFzA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/user/1/courses/1/assignments/1/grades",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"user",
+								"1",
+								"courses",
+								"1",
+								"assignments",
+								"1",
+								"grades"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST grade",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "7732826b-be69-4d68-ab5d-8e57a52f5fa5",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"success\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.success)==true;\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImFlR1hTVk1CT2p6bVpET3g1amY0NSJ9.eyJpc3MiOiJodHRwczovL2Rldi1sM3Eta200di51cy5hdXRoMC5jb20vIiwic3ViIjoiYXV0aDB8NWVmM2JhYmY1NWVlZjIwMDE5MmY2MGJlIiwiYXVkIjoiZ3JhZGVib29rIiwiaWF0IjoxNTk1ODI0OTI3LCJleHAiOjE1OTU4MzIxMjcsImF6cCI6IkdkUE5ZM3hUSDFETjhia0g2Um5PWXU2YmFaekdOM2l6Iiwic2NvcGUiOiIiLCJwZXJtaXNzaW9ucyI6WyJkZWxldGU6Z3JhZGUiLCJnZXQ6Y291cnNlcyIsImdldDpncmFkZSIsImdldDpncmFkZXMiLCJwYXRjaDpjb3Vyc2UiLCJwYXRjaDpncmFkZSIsInBvc3Q6Z3JhZGUiXX0.YjHudtMZZgJru2Fd8DBBnWbkHV-5eys4G3oeUYjGzkORUtM1odQ8iy5cKhm2n-csTO7tmLHyhZQBqPj_1jsZApoAi9d9kUtXdId4b2nBh8iYwv8jQZ7rAIMd5WvG3_CZvmvCYTjM5fP0MV70qYKSTR3ospYsIkH4KjvDMtub0nUKcv8BoCjwu5UnAmKlLnl_T4FQsEHDGuitr9BV_TJytOE9_FV0rHkJOpyBrel2jioyLUPPdWBkjSYQzs-K3-TBBD0QhXs_QQLZ_RrykmbPFE9H53hEgKfyvXYOQl5S3kcM8CgKSC_hbht1XrZQCGfxGDiB1OkSA2-mGrokCVjFzA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/user/1/courses/1/assignments/3/grades?points=80&assignment_id=9",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"user",
+								"1",
+								"courses",
+								"1",
+								"assignments",
+								"3",
+								"grades"
+							],
+							"query": [
+								{
+									"key": "points",
+									"value": "80"
+								},
+								{
+									"key": "assignment_id",
+									"value": "9"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PATCH grade",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "508ada33-8fb3-4d37-b9fe-71025f4cd497",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"success\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.success)==true;\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImFlR1hTVk1CT2p6bVpET3g1amY0NSJ9.eyJpc3MiOiJodHRwczovL2Rldi1sM3Eta200di51cy5hdXRoMC5jb20vIiwic3ViIjoiYXV0aDB8NWVmM2JhYmY1NWVlZjIwMDE5MmY2MGJlIiwiYXVkIjoiZ3JhZGVib29rIiwiaWF0IjoxNTk1ODI0OTI3LCJleHAiOjE1OTU4MzIxMjcsImF6cCI6IkdkUE5ZM3hUSDFETjhia0g2Um5PWXU2YmFaekdOM2l6Iiwic2NvcGUiOiIiLCJwZXJtaXNzaW9ucyI6WyJkZWxldGU6Z3JhZGUiLCJnZXQ6Y291cnNlcyIsImdldDpncmFkZSIsImdldDpncmFkZXMiLCJwYXRjaDpjb3Vyc2UiLCJwYXRjaDpncmFkZSIsInBvc3Q6Z3JhZGUiXX0.YjHudtMZZgJru2Fd8DBBnWbkHV-5eys4G3oeUYjGzkORUtM1odQ8iy5cKhm2n-csTO7tmLHyhZQBqPj_1jsZApoAi9d9kUtXdId4b2nBh8iYwv8jQZ7rAIMd5WvG3_CZvmvCYTjM5fP0MV70qYKSTR3ospYsIkH4KjvDMtub0nUKcv8BoCjwu5UnAmKlLnl_T4FQsEHDGuitr9BV_TJytOE9_FV0rHkJOpyBrel2jioyLUPPdWBkjSYQzs-K3-TBBD0QhXs_QQLZ_RrykmbPFE9H53hEgKfyvXYOQl5S3kcM8CgKSC_hbht1XrZQCGfxGDiB1OkSA2-mGrokCVjFzA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/user/1/courses/1/assignments/3/grades?points=80",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"user",
+								"1",
+								"courses",
+								"1",
+								"assignments",
+								"3",
+								"grades"
+							],
+							"query": [
+								{
+									"key": "points",
+									"value": "80"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE grade",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "a8033057-4e75-4d28-bfaf-c5434fb2010a",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"success\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.success)==true;\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImFlR1hTVk1CT2p6bVpET3g1amY0NSJ9.eyJpc3MiOiJodHRwczovL2Rldi1sM3Eta200di51cy5hdXRoMC5jb20vIiwic3ViIjoiYXV0aDB8NWVmM2JhYmY1NWVlZjIwMDE5MmY2MGJlIiwiYXVkIjoiZ3JhZGVib29rIiwiaWF0IjoxNTk1ODI0OTI3LCJleHAiOjE1OTU4MzIxMjcsImF6cCI6IkdkUE5ZM3hUSDFETjhia0g2Um5PWXU2YmFaekdOM2l6Iiwic2NvcGUiOiIiLCJwZXJtaXNzaW9ucyI6WyJkZWxldGU6Z3JhZGUiLCJnZXQ6Y291cnNlcyIsImdldDpncmFkZSIsImdldDpncmFkZXMiLCJwYXRjaDpjb3Vyc2UiLCJwYXRjaDpncmFkZSIsInBvc3Q6Z3JhZGUiXX0.YjHudtMZZgJru2Fd8DBBnWbkHV-5eys4G3oeUYjGzkORUtM1odQ8iy5cKhm2n-csTO7tmLHyhZQBqPj_1jsZApoAi9d9kUtXdId4b2nBh8iYwv8jQZ7rAIMd5WvG3_CZvmvCYTjM5fP0MV70qYKSTR3ospYsIkH4KjvDMtub0nUKcv8BoCjwu5UnAmKlLnl_T4FQsEHDGuitr9BV_TJytOE9_FV0rHkJOpyBrel2jioyLUPPdWBkjSYQzs-K3-TBBD0QhXs_QQLZ_RrykmbPFE9H53hEgKfyvXYOQl5S3kcM8CgKSC_hbht1XrZQCGfxGDiB1OkSA2-mGrokCVjFzA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/user/1/courses/1/assignments/3/grades",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"user",
+								"1",
+								"courses",
+								"1",
+								"assignments",
+								"3",
+								"grades"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET courses",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "135ec3d7-5675-43ba-8a19-8472e397e41c",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"value contains a courses array\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.courses).to.be.an('array')\r",
+									"});\r",
+									"\r",
+									"pm.test(\"success\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.success)==true;\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImFlR1hTVk1CT2p6bVpET3g1amY0NSJ9.eyJpc3MiOiJodHRwczovL2Rldi1sM3Eta200di51cy5hdXRoMC5jb20vIiwic3ViIjoiYXV0aDB8NWVmM2JhYmY1NWVlZjIwMDE5MmY2MGJlIiwiYXVkIjoiZ3JhZGVib29rIiwiaWF0IjoxNTk1ODI0OTI3LCJleHAiOjE1OTU4MzIxMjcsImF6cCI6IkdkUE5ZM3hUSDFETjhia0g2Um5PWXU2YmFaekdOM2l6Iiwic2NvcGUiOiIiLCJwZXJtaXNzaW9ucyI6WyJkZWxldGU6Z3JhZGUiLCJnZXQ6Y291cnNlcyIsImdldDpncmFkZSIsImdldDpncmFkZXMiLCJwYXRjaDpjb3Vyc2UiLCJwYXRjaDpncmFkZSIsInBvc3Q6Z3JhZGUiXX0.YjHudtMZZgJru2Fd8DBBnWbkHV-5eys4G3oeUYjGzkORUtM1odQ8iy5cKhm2n-csTO7tmLHyhZQBqPj_1jsZApoAi9d9kUtXdId4b2nBh8iYwv8jQZ7rAIMd5WvG3_CZvmvCYTjM5fP0MV70qYKSTR3ospYsIkH4KjvDMtub0nUKcv8BoCjwu5UnAmKlLnl_T4FQsEHDGuitr9BV_TJytOE9_FV0rHkJOpyBrel2jioyLUPPdWBkjSYQzs-K3-TBBD0QhXs_QQLZ_RrykmbPFE9H53hEgKfyvXYOQl5S3kcM8CgKSC_hbht1XrZQCGfxGDiB1OkSA2-mGrokCVjFzA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/user/3/courses",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"user",
+								"3",
+								"courses"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PATCH course",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "d220cc4a-2608-48a3-82d1-16a3c5f4c996",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"success\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.success)==true;\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImFlR1hTVk1CT2p6bVpET3g1amY0NSJ9.eyJpc3MiOiJodHRwczovL2Rldi1sM3Eta200di51cy5hdXRoMC5jb20vIiwic3ViIjoiYXV0aDB8NWVmM2JhYmY1NWVlZjIwMDE5MmY2MGJlIiwiYXVkIjoiZ3JhZGVib29rIiwiaWF0IjoxNTk1ODI0OTI3LCJleHAiOjE1OTU4MzIxMjcsImF6cCI6IkdkUE5ZM3hUSDFETjhia0g2Um5PWXU2YmFaekdOM2l6Iiwic2NvcGUiOiIiLCJwZXJtaXNzaW9ucyI6WyJkZWxldGU6Z3JhZGUiLCJnZXQ6Y291cnNlcyIsImdldDpncmFkZSIsImdldDpncmFkZXMiLCJwYXRjaDpjb3Vyc2UiLCJwYXRjaDpncmFkZSIsInBvc3Q6Z3JhZGUiXX0.YjHudtMZZgJru2Fd8DBBnWbkHV-5eys4G3oeUYjGzkORUtM1odQ8iy5cKhm2n-csTO7tmLHyhZQBqPj_1jsZApoAi9d9kUtXdId4b2nBh8iYwv8jQZ7rAIMd5WvG3_CZvmvCYTjM5fP0MV70qYKSTR3ospYsIkH4KjvDMtub0nUKcv8BoCjwu5UnAmKlLnl_T4FQsEHDGuitr9BV_TJytOE9_FV0rHkJOpyBrel2jioyLUPPdWBkjSYQzs-K3-TBBD0QhXs_QQLZ_RrykmbPFE9H53hEgKfyvXYOQl5S3kcM8CgKSC_hbht1XrZQCGfxGDiB1OkSA2-mGrokCVjFzA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/user/3/courses/1?start='3:00'&end='4:00",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"user",
+								"3",
+								"courses",
+								"1"
+							],
+							"query": [
+								{
+									"key": "start",
+									"value": "'3:00'"
+								},
+								{
+									"key": "end",
+									"value": "'4:00"
+								},
+								{
+									"key": "",
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Tests for teacher endpoints.",
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
