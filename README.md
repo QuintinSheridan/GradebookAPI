@@ -25,7 +25,7 @@ requirements.txt - a text file with all required python libraries
 setup.sh - a script to keep any environment variables that may be required for heroku deployment
 
 
-## Local Setup
+## Local Setup and Deployment
 The scripts can be run locally.  First, create a virtual environment
 
 virtualenvironment env
@@ -46,6 +46,221 @@ flask run
 
 ## Heroku Deployment
 Currently, the app is deployed on Heroku.  For details on how to deploy applications on Heroku see https://devcenter.heroku.com/categories/deployment for more information.
+The herku app is currently hosed at the following URL
+
+https://qtry2.herokuapp.com
+
+## API endpoints
+The app in this project serves as an API backend for a gradebook application with two roles: students and teachers
+
+
+## API Testing
+All testing for this project was performed using postman in the collection 
+
+
+## Example API Usage
+### Student
+get:grades
+eg call: {host}/user/1/courses/1/assignments/grades
+returns: {
+    "course_id": 1,
+    "grades": [
+        [
+            1,
+            1,
+            78
+        ],
+        [
+            2,
+            1,
+            88
+        ]
+    ],
+    "status": 200,
+    "success": true
+}
+
+get:grade
+eg: {host} /user/1/courses/1/assignments/1/grades
+returns {
+    "assignment_number": 1,
+    "course_id": 1,
+    "grade": [
+        [
+            1,
+            1,
+            78
+        ]
+    ],
+    "status": 200,
+    "success": true
+}
+
+get:courses
+eg: {host}//user/1/courses
+returns: {
+    "courses": [
+        [
+            1,
+            "'4:00",
+            "MTWRF",
+            "8:00",
+            "8:50"
+        ],
+        [
+            2,
+            "English101",
+            "MTWRF",
+            "9:00",
+            "9:50"
+        ],
+        [
+            3,
+            "Science101",
+            "MTWRF",
+            "10:00",
+            "10:50"
+        ],
+        [
+            4,
+            "History101",
+            "MTWRF",
+            "11:00",
+            "11:50"
+        ]
+    ],
+    "status": 200,
+    "success": true,
+    "user_id": 1
+}
+
+### Teacher
+get:grades
+eg: {host}/user/3/courses/1/assignments/grades
+returns: {
+    "course_id": 1,
+    "grades": [
+        [
+            1,
+            1,
+            78
+        ],
+        [
+            1,
+            2,
+            77
+        ],
+        [
+            2,
+            1,
+            88
+        ],
+        [
+            2,
+            2,
+            84
+        ]
+    ],
+    "status": 200,
+    "success": true
+}
+
+get:grade
+eg: {host}/user/1/courses/1/assignments/1/grades
+returns: {
+    "assignment_number": 1,
+    "course_id": 1,
+    "grade": [
+        [
+            1,
+            1,
+            78
+        ]
+    ],
+    "status": 200,
+    "success": true
+}
+
+post:grade
+eg: {host}/user/1/courses/1/assignments/3/grades?points=80&assignment_id=9
+returns: {
+    "assignment_number": 3,
+    "course_id": 1,
+    "points": "80",
+    "status": 200,
+    "success": true
+}
+
+patch:grade
+eg: {host}/user/1/courses/1/assignments/3/grades?points=80
+returns: {
+    "assignment_number": 3,
+    "course_id": 1,
+    "points": "80",
+    "status": 200,
+    "success": true,
+    "user_id": 1
+}
+
+dlete:grade
+eg: /user/1/courses/1/assignments/3/grades
+returns: {
+    "course_id": 1,
+    "deleted_assignment_number": 3,
+    "status": 200,
+    "success": true,
+    "user_id": 1
+}
+
+get:courses
+eg: {host}/user/3/courses
+reurns: 
+  {
+    "courses": [
+        [
+            1,
+            "'4:00",
+            "MTWRF",
+            "8:00",
+            "8:50"
+        ],
+        [
+            2,
+            "English101",
+            "MTWRF",
+            "9:00",
+            "9:50"
+        ],
+        [
+            3,
+            "Science101",
+            "MTWRF",
+            "10:00",
+            "10:50"
+        ],
+        [
+            4,
+            "History101",
+            "MTWRF",
+            "11:00",
+            "11:50"
+        ]
+    ],
+    "status": 200,
+    "success": true,
+    "user_id": 3
+}
+
+patch:course
+eg: /user/3/courses/1?start='3:00'&end='4:00'
+returns: {
+    "status": 200,
+    "success": true,
+    "updated_course": 1,
+    "user_id": 3
+}
+
+
 
 
 
