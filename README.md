@@ -1,6 +1,6 @@
 # qtry2
 This github repoo hosts a project to act as the backend for an online gradebook platform.  
-The data is currently hosted as a sqlite database.  Here is a breakdown of the files in the repo:
+The data is currently hosted as a sqlite database.
 
 ## Files
 
