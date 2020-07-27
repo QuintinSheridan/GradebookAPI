@@ -46,7 +46,7 @@ The application can be ran using flask:
 
 ## Heroku Deployment
 Currently, the app is deployed on Heroku.  For details on how to deploy applications on Heroku see https://devcenter.heroku.com/categories/deployment for more information.
-The herku app is currently hosed at the following URL
+The Heroku app is currently hosed at the following URL:
 
 https://qtry2.herokuapp.com
 
