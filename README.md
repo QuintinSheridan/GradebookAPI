@@ -1,4 +1,4 @@
-# qtry2
+# GradebookAPI
 This github repoo hosts a project to act as the backend for an online gradebook platform.  
 The data is currently hosted as a sqlite database.
 
